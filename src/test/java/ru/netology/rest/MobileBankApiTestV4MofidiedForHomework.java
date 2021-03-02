@@ -2,6 +2,8 @@ package ru.netology.rest;
 
 import org.junit.jupiter.api.Test;
 
+import javax.print.attribute.standard.ReferenceUriSchemesSupported;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
@@ -21,6 +23,7 @@ class MobileBankApiTestV4MofidiedForHomework {
       .then()
               .statusCode(200)
               .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
+              .body("[0].currency", equalTo("RUR"))
       ;
     }
 }
