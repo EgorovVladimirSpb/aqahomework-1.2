@@ -27,8 +27,11 @@
         "type": "integer"
       },
       "currency": {
-        "type": "string"
+        "type": "string",
+        "maxLength": 3,
+        "minLength": 3,
+        "pattern": "^(RUB|USD)$"
+        }
       }
     }
   }
-}
